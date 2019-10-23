@@ -1,5 +1,4 @@
 # import Flask class - notice the caps - by convention, python classes are capitalised
-# 
 from flask import Flask
 
 # create an instance of Flask class
@@ -8,6 +7,10 @@ from flask import Flask
 
 # the flask object implements a WSGI application
 # An instance of this class will be our WSGI application
+# WSGI stands for Web Server Gateway Interface
+# WSGI introduced a single calling convention that every web server could implement, thereby making that web server instantly compatible with all of the Python web applications and web frameworks that also support WSGI.
+# Flask application gives us a WSGI server that knows howto use HTTP to talk to a web browser and an application written to respond correctly when invoked per the WSGI calling convention
+
 # To initiate an instance, flask expects the name of the module of the application
 # The name is important because it is used to resolve resources from inside the package or the folder the module is contained in depending on
 # The idea of the first parameter is to give Flask an idea of what belongs to your application. This name is used to find resources on the filesystem and more
@@ -34,7 +37,9 @@ def index():
 # When a module is run as a script, its __name__ is set to __main__
 if __name__ == "__main__":
   # run() runs the application on a local development server
+  # If the debug flag is set the server will automatically reload for code changes and show a debugger in case an exception happened
 	application.run(debug=True)
 
 # SOURCES
 # https://hackersandslackers.com/the-art-of-building-flask-routes/
+# https://www.phys.hawaii.edu/~idlab/bronson/projects/erle-robotics-python-gitbook-free.pdf
