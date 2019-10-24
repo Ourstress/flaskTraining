@@ -32,7 +32,15 @@ todos = ["buy rice", "feed cat"]
 # The name of our route function is important. It is a best practice to refer to routes by name as opposed to URL. Therefore, a route with a function named home() with henceforth be known as  home, as opposed to “/“
 @application.route('/')
 def index():
-  return str(todos)
+  # initialise todoListItem because todoListItem += thing actually equals todoListItem = todoListItem + thing
+  todoListItem = ""
+  # todo is a local variable created in the for loop
+  for todo in todos:
+    # doing string concatenation & formatted string
+    # formatted string let us insert variables' values
+    # note that the letter f preceeds the string
+    todoListItem += f"<li>{todo}</li>"
+  return  f"<html><h2>Todos</h2><ul>{todoListItem}</ul></html>"
 
 # When a module is run as a script, its __name__ is set to __main__
 if __name__ == "__main__":
